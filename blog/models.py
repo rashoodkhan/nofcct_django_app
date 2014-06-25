@@ -33,4 +33,4 @@ class FileManager(models.Model):
         ('Document','Document')
     )
     category = models.CharField('File Category', choices=CATEGORY, max_length=50)
-    file_uploaded = models.FileField(upload_to=get_upload_path)
+    file_uploaded = models.FileField(upload_to='files_uploaded/')
