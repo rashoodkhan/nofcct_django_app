@@ -34,3 +34,7 @@ class FileManager(models.Model):
     )
     category = models.CharField('File Category', choices=CATEGORY, max_length=50)
     file_uploaded = models.FileField(upload_to='files_uploaded/')
+    date_uploaded = models.DateTimeField('Date Uploaded',auto_now_add=True)
+
+    def __unicode__(self):
+        return self.title

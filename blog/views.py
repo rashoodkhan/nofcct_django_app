@@ -84,3 +84,12 @@ def event_detail(request, event_id):
     return render(request,'blog/event_detail.html',{
         'event' : event
     })
+
+def media_view(request):
+    if request.method == 'POST':
+        return search(request)
+
+    media_all = FileManager.objects.all()
+    return render(request,'blog/media.html',{
+        'media_all' : media_all
+    })

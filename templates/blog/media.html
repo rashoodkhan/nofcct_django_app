@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h2>Media Uploads</h2>
+<div class="content">
+{% for media in media_all %}
+    <p class="lead">Name - <a href="{{media.file_uploaded.url}}" >{{media.title}}</a></p>
+    <p class="lead">Category - {{media.category}}</p>
+    <p class="lead">Date Uploaded - {{media.date_uploaded}}</p>
+{% endfor %}
+    </div>
+{% endblock %}
