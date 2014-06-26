@@ -76,3 +76,11 @@ def event_view(request):
         'events' : events
     })
 
+def event_detail(request, event_id):
+    if request.method == 'POST':
+        return search(request)
+
+    event = get_object_or_404(Event,id=event_id)
+    return render(request,'blog/event_detail.html',{
+        'event' : event
+    })

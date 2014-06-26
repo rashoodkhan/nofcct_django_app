@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}
+{% block content %}
+        <div class="content">
+            {% if event %}
+            <h2>{{event.name}}</h2>
+            <p class="lead">Start Time - {{event.start_date}}</p>
+            <p class="lead">End Time - {{event.end_date}}</p>
+            <p class="lead">Venue - {{event.venue}}</p>
+            {% endif %}
+        </div>
+{% endblock %}
