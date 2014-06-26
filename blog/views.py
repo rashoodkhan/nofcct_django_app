@@ -25,6 +25,7 @@ def search(request):
     key = request.POST['key']
     posts = Blog.objects.all()
     events = Event.objects.all()
+    key = str(key).lower()
 
     req_posts = []
     req_events = []
@@ -41,10 +42,14 @@ def search(request):
 
     for event in events:
         name = str(event.name)
-        end_date = event.end_date
+        venue = str(event.venue)
+        end_date = event.end_date.date()
         cur_date = datetime.date.today()
 
-        if name.count(key):
+        name = name.lower()
+        venue = venue.lower()
+
+        if name.count(key) or venue.count(key):
             if end_date - cur_date >= datetime.timedelta(0):
                 req_events.append(event)
 
@@ -60,5 +65,14 @@ def blog_detail(request,blog_id):
     blog = get_object_or_404(Blog,id=blog_id)
     return render(request,'blog/blog_detail.html',{
         'blog' : blog
+    })
+
+def event_view(request):
+    if request.method == 'POST':
+        return search(request)
+
+    events = Event.objects.all()
+    return render(request,'blog/event.html',{
+        'events' : events
     })
 

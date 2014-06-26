@@ -13,5 +13,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.index, name='index'),
     url(r'^blog/$',views.blogview, name='blog'),
-    url(r'^blog/(?P<blog_id>[0-9]+)/$', views.blog_detail, name='blog_detail')
+    url(r'^blog/(?P<blog_id>[0-9]+)/$', views.blog_detail, name='blog_detail'),
+    url(r'^events/$', views.event_view, name='events')
 )

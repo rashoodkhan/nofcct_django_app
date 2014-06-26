@@ -18,7 +18,7 @@ class Blog(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=50)
-    start_date = models.DateTimeField('Start Time',auto_now_add=True)
+    start_date = models.DateTimeField('Start Time')
     end_date = models.DateTimeField('End Time')
     venue = models.CharField(max_length=50)
 

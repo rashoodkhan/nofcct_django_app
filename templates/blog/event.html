@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block content %}
+        <div class="content">
+            <h2>Upcoming Events:</h2>
+{% for event in events %}
+        <a href="/events/{{event.id}}/"><h2>{{event.name}}</h2></a>
+        <p class="lead">Start Time - {{event.start_date}}</p>
+        <p class="lead">End Time - {{event.end_date}}</p>
+        <p class="lead">Venue - {{event.venue}}</p>
+{% endfor %}
+            </div>
+{% endblock %}
